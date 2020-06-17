@@ -19,7 +19,10 @@ class LessonGroupPage extends StatelessWidget {
         appBar: AppBar(
           title: Text('Lesson group page'),
           actions: <Widget>[
-            IconButton(icon: Icon(Icons.share), onPressed: () {},)
+            IconButton(
+              icon: Icon(Icons.share),
+              onPressed: () {},
+            )
           ],
         ),
 //        drawer: new MyDrawer(),
@@ -59,7 +62,6 @@ class LessonGroupPage extends StatelessWidget {
                   padding: EdgeInsets.all(10),
                   child: Text('This is a Card'),
                 ),
-
               ),
               AlertDialog(
                 title: Text('Dialog title'),
