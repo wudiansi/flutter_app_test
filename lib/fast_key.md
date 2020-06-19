@@ -8,3 +8,4 @@ TOP7：快速创建Widget：在dart文件中输入stf或stl出现提示后按回
 TOP8：将代码更新到模拟器上：选中模拟器然后 command + R
 TOP9：导入类的快捷键：将光标放在要导入类的上面，然后按 option + enter
 TOP10：快速创建构造函数：在类文件中通过command + N 然后在弹出的面板中选择constructor
+TOP11：格式化代码 Ctrl + Alt + L
