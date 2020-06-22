@@ -23,7 +23,19 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.yellow,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: MyHomePage(title: 'Flutter Demo Home Page Test'),
+      home: Scaffold(
+        appBar: AppBar(
+          title: Text('如何创建和使用Flutter的路由与导航？'),
+//          左侧weiget Gesture 手势监听器
+          leading: GestureDetector(
+            onTap: (){
+              Navigator.pop(context);
+            },
+            child: Icon(Icons.arrow_back),
+          ),
+        ),
+        body: RouteNavigator(),
+      ),
       routes: <String, WidgetBuilder>{
         "less": (BuildContext context) => LessonGroupPage(),
         "layout": (BuildContext context) => FlutterLayoutPages(),
@@ -34,15 +46,12 @@ class MyApp extends StatelessWidget {
   }
 }
 
-class MyHomePage extends StatefulWidget {
-  MyHomePage({Key key, this.title}) : super(key: key);
-  final String title;
-
+class RouteNavigator extends StatefulWidget {
   @override
-  _MyHomePageState createState() => _MyHomePageState();
+  _RouteNavigatorState createState() => _RouteNavigatorState();
 }
 
-class _MyHomePageState extends State<MyHomePage> {
+class _RouteNavigatorState extends State<RouteNavigator> {
   bool byName = false;
 
   @override

@@ -18,6 +18,12 @@ class LessonGroupPage extends StatelessWidget {
       home: Scaffold(
         appBar: AppBar(
           title: Text('Lesson group page'),
+          leading: GestureDetector(
+            onTap: () {
+              Navigator.pop(context);
+            },
+            child: Icon(Icons.arrow_back),
+          ),
           actions: <Widget>[
             IconButton(
               icon: Icon(Icons.share),

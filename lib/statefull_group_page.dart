@@ -23,6 +23,12 @@ class _StatefulGroupState extends State<StatefulGroup> {
       home: Scaffold(
         appBar: AppBar(
           title: Text('StatefulWidget与基础组件'),
+          leading: GestureDetector(
+            onTap: () {
+              Navigator.pop(context);
+            },
+            child: Icon(Icons.arrow_back),
+          ),
           actions: <Widget>[
             IconButton(
               icon: Icon(Icons.share),

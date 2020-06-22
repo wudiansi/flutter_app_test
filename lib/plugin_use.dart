@@ -26,13 +26,24 @@ class PluginUse extends StatelessWidget {
         // closer together (more dense) than on mobile platforms.
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: MyHomePage(title: 'PluginUse Test'),
+      home: Scaffold(
+        appBar: AppBar(
+          title: Text(''),
+          leading: GestureDetector(
+            onTap: (){
+              Navigator.pop(context);
+            },
+            child: Icon(Icons.arrow_back),
+          ),
+        ),
+        body: PluginUsePage(title: 'PluginUse Test'),
+      )
     );
   }
 }
 
-class MyHomePage extends StatefulWidget {
-  MyHomePage({Key key, this.title}) : super(key: key);
+class PluginUsePage extends StatefulWidget {
+  PluginUsePage({Key key, this.title}) : super(key: key);
 
   // This widget is the home page of your application. It is stateful, meaning
   // that it has a State object (defined below) that contains fields that affect
@@ -46,10 +57,10 @@ class MyHomePage extends StatefulWidget {
   final String title;
 
   @override
-  _MyHomePageState createState() => _MyHomePageState();
+  _PluginUsePageState createState() => _PluginUsePageState();
 }
 
-class _MyHomePageState extends State<MyHomePage> {
+class _PluginUsePageState extends State<PluginUsePage> {
   int _counter = 0;
 
   void _incrementCounter() {
