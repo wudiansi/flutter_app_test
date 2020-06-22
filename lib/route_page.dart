@@ -3,6 +3,7 @@ import 'package:flutterapptest/data_type.dart';
 import 'package:flutterapptest/flutter_layout_page.dart';
 import 'package:flutterapptest/function_learn.dart';
 import 'package:flutterapptest/generic_learn.dart';
+import 'package:flutterapptest/gesture_page.dart';
 import 'package:flutterapptest/lesson_group_page.dart';
 import 'package:flutterapptest/oop_learn.dart';
 import 'package:flutterapptest/plugin_use.dart';
@@ -27,12 +28,12 @@ class MyApp extends StatelessWidget {
         appBar: AppBar(
           title: Text('如何创建和使用Flutter的路由与导航？'),
 //          左侧weiget Gesture 手势监听器
-          leading: GestureDetector(
-            onTap: (){
-              Navigator.pop(context);
-            },
-            child: Icon(Icons.arrow_back),
-          ),
+//          leading: GestureDetector(
+//            onTap: (){
+//              Navigator.pop(context);
+//            },
+//            child: Icon(Icons.arrow_back),
+//          ),
         ),
         body: RouteNavigator(),
       ),
@@ -41,6 +42,7 @@ class MyApp extends StatelessWidget {
         "layout": (BuildContext context) => FlutterLayoutPages(),
         "plugin": (BuildContext context) => PluginUse(),
         "ful": (BuildContext context) => StatefulGroup(),
+        "ges": (BuildContext context) => GesturePage(),
       },
     );
   }
@@ -71,6 +73,7 @@ class _RouteNavigatorState extends State<RouteNavigator> {
           _item('layout page', FlutterLayoutPages(), 'layout'),
           _item('plugin page', PluginUse(), 'plugin'),
           _item('ful page', StatefulGroup(), 'ful'),
+          _item('gesture page', GesturePage(), 'ges'),
         ],
       ),
     );
