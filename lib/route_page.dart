@@ -7,6 +7,7 @@ import 'package:flutterapptest/gesture_page.dart';
 import 'package:flutterapptest/lesson_group_page.dart';
 import 'package:flutterapptest/oop_learn.dart';
 import 'package:flutterapptest/plugin_use.dart';
+import 'package:flutterapptest/res_page.dart';
 import 'package:flutterapptest/statefull_group_page.dart';
 //import 'package:flutterapptest/oop_learn.dart';
 
@@ -43,6 +44,7 @@ class MyApp extends StatelessWidget {
         "plugin": (BuildContext context) => PluginUse(),
         "ful": (BuildContext context) => StatefulGroup(),
         "ges": (BuildContext context) => GesturePage(),
+        "res": (BuildContext context) => ResPage(),
       },
     );
   }
@@ -74,6 +76,7 @@ class _RouteNavigatorState extends State<RouteNavigator> {
           _item('plugin page', PluginUse(), 'plugin'),
           _item('ful page', StatefulGroup(), 'ful'),
           _item('gesture page', GesturePage(), 'ges'),
+          _item('res page', ResPage(), 'res'),
         ],
       ),
     );
