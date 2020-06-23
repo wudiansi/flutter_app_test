@@ -26,6 +26,7 @@ class _DynamicThemeState extends State<DynamicTheme> {
     return MaterialApp(
       title: '使用route 路由导航',
       theme: ThemeData(
+//        fontFamily: 'RubikMonoOne', // 全局应用字体设置
         brightness: _brightness,
         primarySwatch: Colors.yellow,
         visualDensity: VisualDensity.adaptivePlatformDensity,
@@ -53,7 +54,8 @@ class _DynamicThemeState extends State<DynamicTheme> {
                   }
                 });
               },
-              child: Text('切换主题'),
+              // 局部引入字体
+              child: Text('切换主题 start', style: TextStyle(fontFamily: 'RubikMonoOne'),),
             ),
             RouteNavigator()
           ],
