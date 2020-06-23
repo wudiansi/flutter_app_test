@@ -1,30 +1,32 @@
 import 'package:flutter/material.dart';
 import 'package:flutterapptest/app_lifecycle.dart';
-import 'package:flutterapptest/data_type.dart';
 import 'package:flutterapptest/flutter_layout_page.dart';
 import 'package:flutterapptest/flutter_widget_lifecycle.dart';
-import 'package:flutterapptest/function_learn.dart';
-import 'package:flutterapptest/generic_learn.dart';
 import 'package:flutterapptest/gesture_page.dart';
 import 'package:flutterapptest/launch_page.dart';
 import 'package:flutterapptest/lesson_group_page.dart';
-import 'package:flutterapptest/oop_learn.dart';
 import 'package:flutterapptest/plugin_use.dart';
 import 'package:flutterapptest/res_page.dart';
 import 'package:flutterapptest/statefull_group_page.dart';
-//import 'package:flutterapptest/oop_learn.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(DynamicTheme());
 }
 
-class MyApp extends StatelessWidget {
-  // This widget is the root of your application.
+class DynamicTheme extends StatefulWidget {
+  @override
+  _DynamicThemeState createState() => _DynamicThemeState();
+}
+
+class _DynamicThemeState extends State<DynamicTheme> {
+  Brightness _brightness = Brightness.light;
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       title: '使用route 路由导航',
       theme: ThemeData(
+        brightness: _brightness,
         primarySwatch: Colors.yellow,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
@@ -39,7 +41,23 @@ class MyApp extends StatelessWidget {
 //            child: Icon(Icons.arrow_back),
 //          ),
         ),
-        body: RouteNavigator(),
+        body: Column(
+          children: <Widget>[
+            RaisedButton(
+              onPressed: () {
+                setState(() {
+                  if( _brightness == Brightness.dark) {
+                    _brightness = Brightness.light;
+                  } else {
+                    _brightness = Brightness.dark;
+                  }
+                });
+              },
+              child: Text('切换主题'),
+            ),
+            RouteNavigator()
+          ],
+        ),
       ),
       routes: <String, WidgetBuilder>{
         "less": (BuildContext context) => LessonGroupPage(),

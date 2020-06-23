@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutterapptest/data_type.dart';
 import 'package:flutterapptest/function_learn.dart';
 import 'package:flutterapptest/generic_learn.dart';
 import 'package:flutterapptest/oop_learn.dart';
-//import 'package:flutterapptest/oop_learn.dart';
 
 void main() {
   runApp(MyApp());
