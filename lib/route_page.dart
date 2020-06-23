@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutterapptest/app_lifecycle.dart';
 import 'package:flutterapptest/data_type.dart';
 import 'package:flutterapptest/flutter_layout_page.dart';
+import 'package:flutterapptest/flutter_widget_lifecycle.dart';
 import 'package:flutterapptest/function_learn.dart';
 import 'package:flutterapptest/generic_learn.dart';
 import 'package:flutterapptest/gesture_page.dart';
@@ -47,6 +49,8 @@ class MyApp extends StatelessWidget {
         "ges": (BuildContext context) => GesturePage(),
         "res": (BuildContext context) => ResPage(),
         "launch": (BuildContext context) => LaunchPage(),
+        "lifecycle": (BuildContext context) => WidgetLifecycle(),
+        "app_lifecycle": (BuildContext context) => AppLifeCycle(),
       },
     );
   }
@@ -80,6 +84,8 @@ class _RouteNavigatorState extends State<RouteNavigator> {
           _item('gesture page', GesturePage(), 'ges'),
           _item('res page', ResPage(), 'res'),
           _item('launch page', LaunchPage(), 'launch'),
+          _item('lifecycle page', WidgetLifecycle(), 'lifecycle'),
+          _item('app lifecycle page', AppLifeCycle(), 'app_lifecycle'),
         ],
       ),
     );
