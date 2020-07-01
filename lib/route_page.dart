@@ -5,6 +5,7 @@ import 'package:flutterapptest/flutter_widget_lifecycle.dart';
 import 'package:flutterapptest/gesture_page.dart';
 import 'package:flutterapptest/launch_page.dart';
 import 'package:flutterapptest/lesson_group_page.dart';
+import 'package:flutterapptest/photo_app_page.dart';
 import 'package:flutterapptest/plugin_use.dart';
 import 'package:flutterapptest/res_page.dart';
 import 'package:flutterapptest/statefull_group_page.dart';
@@ -71,6 +72,7 @@ class _DynamicThemeState extends State<DynamicTheme> {
         "launch": (BuildContext context) => LaunchPage(),
         "lifecycle": (BuildContext context) => WidgetLifecycle(),
         "app_lifecycle": (BuildContext context) => AppLifeCycle(),
+        "photo_app": (BuildContext context) => PhotoApp(),
       },
     );
   }
@@ -106,6 +108,7 @@ class _RouteNavigatorState extends State<RouteNavigator> {
           _item('launch page', LaunchPage(), 'launch'),
           _item('lifecycle page', WidgetLifecycle(), 'lifecycle'),
           _item('app lifecycle page', AppLifeCycle(), 'app_lifecycle'),
+          _item('photo app', PhotoApp(), 'photo'),
         ],
       ),
     );
