@@ -14,7 +14,7 @@ class _PhotoAppState extends State<PhotoApp> {
   List<File> _images = [];
 
   Future getImage(bool isTaskPhoto) async {
-    Navigator.pop(context);
+    Navigator.pop(context);// 选择后隐藏弹窗
     var image = await ImagePicker.pickImage(
         source: isTaskPhoto ? ImageSource.camera : ImageSource.gallery
     );
