@@ -1,3 +1,4 @@
+import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutterapptest/function_learn.dart';
 import 'package:flutterapptest/generic_learn.dart';
@@ -17,7 +18,19 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.yellow,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: MyHomePage(title: 'Flutter Demo Home Page Test'),
+      home: Image.file(File('/storage/emulated/0/Download/Stack.png')),
+//        Image(
+//          image: AssetImage('images/avatar.png'),
+//          width: 20,
+//          height: 20,
+//        )
+//      Image.asset(
+//        'images/avatar.png',
+//        width: 16,
+//        height: 16,
+//      )
+//Image.network('http://www.devio.org/img/avatar.png')
+//      MyHomePage(title: 'Flutter Demo Home Page Test')
     );
   }
 }
@@ -31,7 +44,6 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-
   @override
   Widget build(BuildContext context) {
 //    _oopLearn();
@@ -50,6 +62,7 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
     );
   }
+
   void _oopLearn() {
     print('================');
 //    Logger log1 = Logger();
@@ -60,9 +73,9 @@ class _MyHomePageState extends State<MyHomePage> {
 //
 //    log1.log('11');
 //    log2.log('22');
-      Student.doPrint('__oopLearn');
+    Student.doPrint('__oopLearn');
     Student st1 = Student('清华', 'wds', 22);
-    st1.school = '985';// 设置私有变量
+    st1.school = '985'; // 设置私有变量
     print('st1-------------->${st1.toString()}');
 
     // 非必须参数 尝试用 参数名：值的形式传入
