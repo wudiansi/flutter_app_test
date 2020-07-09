@@ -3,10 +3,25 @@ import 'package:flutter/material.dart';
 import 'package:flutterapptest/function_learn.dart';
 import 'package:flutterapptest/generic_learn.dart';
 import 'package:flutterapptest/oop_learn.dart';
+import 'package:path_provider/path_provider.dart';
+import 'package:transparent_image/transparent_image.dart';
 
 void main() {
   runApp(MyApp());
 }
+
+// Image.file(File('/storage/emulated/0/Download/Stack.png'))
+//FutureBuilder(future: _getLocalFile("Download/Stack.png"),
+//  builder:  (BuildContext context, AsyncSnapshot<File> snapshot) {
+//    return snapshot.data != null ? Image.file(snapshot.data) : Container();
+//  })
+//)
+//
+//Future<File> _getLocalFile(String filename) async {
+//  String dir = (await getExternalStorageDirectory()).path;
+//  File f = new File('$dir/$filename');
+//  return f;
+//}
 
 class MyApp extends StatelessWidget {
   // This widget is the root of your application.
@@ -18,7 +33,20 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.yellow,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: Image.file(File('/storage/emulated/0/Download/Stack.png')),
+      home: Scaffold(
+        appBar: AppBar(
+          title: Text('Index'),
+        ),
+        body: Stack(
+          children: <Widget>[
+            Center(child: CircularProgressIndicator(),),
+            Center(
+              child: FadeInImage.memoryNetwork(placeholder: kTransparentImage, image: 'http://www.devio.org/img/avatar.png'),
+            )
+          ],
+        ),
+      )
+//      Image.file(File('/storage/emulated/0/Download/Stack.png')),
 //        Image(
 //          image: AssetImage('images/avatar.png'),
 //          width: 20,
@@ -102,4 +130,7 @@ class _MyHomePageState extends State<MyHomePage> {
     TestGeneric testGeneric = TestGeneric();
     testGeneric.start();
   }
+}
+
+_getLocalFile() {
 }
