@@ -5,6 +5,7 @@ import 'package:flutterapptest/generic_learn.dart';
 import 'package:flutterapptest/oop_learn.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:transparent_image/transparent_image.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 
 void main() {
   runApp(MyApp());
@@ -28,24 +29,33 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.yellow,
-        visualDensity: VisualDensity.adaptivePlatformDensity,
-      ),
-      home: Scaffold(
-        appBar: AppBar(
-          title: Text('Index'),
+        title: 'Flutter Demo',
+        theme: ThemeData(
+          primarySwatch: Colors.yellow,
+          visualDensity: VisualDensity.adaptivePlatformDensity,
         ),
-        body: Stack(
-          children: <Widget>[
-            Center(child: CircularProgressIndicator(),),
-            Center(
-              child: FadeInImage.memoryNetwork(placeholder: kTransparentImage, image: 'http://www.devio.org/img/avatar.png'),
-            )
-          ],
-        ),
-      )
+        home: Scaffold(
+          appBar: AppBar(
+            title: Text('Index'),
+          ),
+          body: Stack(
+            children: <Widget>[
+              Center(
+//                child: new Icon(Icons.android, size: 100.0,),
+//                child: new Icon(new IconData(0xf5566, fontFamily: 'RubikMonoOne'), size: 100.0, color: Colors.blueAccent,),
+              ),
+              Center(
+//              child: FadeInImage.memoryNetwork(placeholder: kTransparentImage, image: 'http://www.devio.org/img/avatar.png'),
+//              child: FadeInImage.assetNetwork(placeholder: 'images/loading.gif', image: 'http://www.devio.org/img/avatar.png'),
+                child: CachedNetworkImage(
+                  placeholder: (context, url) =>
+                      new CircularProgressIndicator(),
+                  imageUrl: 'https://picsum.photos/250?image=9',
+                ),
+              )
+            ],
+          ),
+        )
 //      Image.file(File('/storage/emulated/0/Download/Stack.png')),
 //        Image(
 //          image: AssetImage('images/avatar.png'),
@@ -59,7 +69,7 @@ class MyApp extends StatelessWidget {
 //      )
 //Image.network('http://www.devio.org/img/avatar.png')
 //      MyHomePage(title: 'Flutter Demo Home Page Test')
-    );
+        );
   }
 }
 
@@ -132,5 +142,4 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 }
 
-_getLocalFile() {
-}
+_getLocalFile() {}
