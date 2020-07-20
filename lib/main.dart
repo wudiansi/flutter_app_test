@@ -12,24 +12,17 @@ void main() {
   runApp(LogoApp());
 }
 
-class AnimationLogo extends AnimatedWidget {
-  AnimationLogo({Key key, Animation<double> animation})
-    : super(key: key, listenable: animation); // listenable animation
-
+class LogoWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    final Animation<double> animation = listenable;
-    return new Center(
-      child: new Container(
-        margin: new EdgeInsets.symmetric(vertical: 10.0),
-        height: animation.value,
-        width: animation.value,
-        child: new FlutterLogo(),
-      ),
+    return Container(
+      margin: EdgeInsets.symmetric(vertical: 10),
+      child: FlutterLogo(),
     );
   }
-  
 }
+
+
 class LogoApp extends StatefulWidget {
   _LogoAppState createState() => _LogoAppState();
 }
