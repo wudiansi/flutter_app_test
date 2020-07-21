@@ -22,6 +22,27 @@ class LogoWidget extends StatelessWidget {
   }
 }
 
+class GrowTransition extends StatelessWidget {
+//  构造方法
+  GrowTransition({this.child, this.animation});
+  final Widget child;
+  final Animation<double> animation;
+
+  @override
+  Widget build(BuildContext context) {
+    return Center(
+      child: AnimatedBuilder(
+        animation: animation,
+        builder: (context, child) => Container(
+          height: animation.value,
+          width: animation.value,
+          child: child,
+        ),
+        child: child,
+      ),
+    );
+  }
+}
 
 class LogoApp extends StatefulWidget {
   _LogoAppState createState() => _LogoAppState();
@@ -56,8 +77,12 @@ class _LogoAppState extends State with SingleTickerProviderStateMixin {
   }
 
   @override
-  Widget build(BuildContext context) {
-    return new AnimationLogo(animation: animation);
+  Widget build(BuildContext context) => GrowTransition(
+    child: LogoWidget(),
+    animation: animation,
+  );
+//  {
+//    return new AnimationLogo(animation: animation);
 //    return Container(
 //      child: Column(
 //        children: <Widget>[
@@ -79,7 +104,7 @@ class _LogoAppState extends State with SingleTickerProviderStateMixin {
 //        ],
 //      ),
 //    );
-  }
+//  }
 
   @override
   void dispose() {
